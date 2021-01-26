@@ -428,8 +428,8 @@ def userchangeinfo():
 @get('/user/openid')
 def useropenid():
     JSCODE = request.query.getunicode('code')
-    SECRET = 'ebe79c14fe9f0a00ba4913e7fd1b69b4'
-    APPID = 'wx871e33b932a5b26c'
+    SECRET = 'yoursecret'
+    APPID = 'yourappid'
     url = 'https://api.weixin.qq.com/sns/jscode2session?appid={appid}&secret={secret}&js_code={code}&grant_type=authorization_code'.format(appid=APPID,secret=SECRET,code=JSCODE)
     res = requests.get(url)
     return dict(openid=res.json()['openid'])
